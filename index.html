@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FLORA DE LUXE — цветочный салон в Днепре. Свежие цветы, букеты на заказ, доставка. Открыто ежедневно с 8:00 до 21:00.">
+  <title>FLORA DE LUXE — Цветы Днепр</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #faf8f5;
+      --color-bg-alt: #f2efe9;
+      --color-surface: #ffffff;
+      --color-text: #1a1816;
+      --color-text-muted: #6b635b;
+      --color-accent: #c9a87a;
+      --color-accent-dark: #b89466;
+      --color-border: #e8e2da;
+      --color-focus: #c9a87a;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --container-max: 1200px;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --space-xl: 4rem;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --transition: 0.3s ease;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --color-bg: #151311;
+        --color-bg-alt: #1d1a18;
+        --color-surface: #1e1b19;
+        --color-text: #f5f2ee;
+        --color-text-muted: #a89d93;
+        --color-accent: #d4b88c;
+        --color-accent-dark: #e0c49a;
+        --color-border: #2d2824;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --color-bg: #151311;
+      --color-bg-alt: #1d1a18;
+      --color-surface: #1e1b19;
+      --color-text: #f5f2ee;
+      --color-text-muted: #a89d93;
+      --color-accent: #d4b88c;
+      --color-accent-dark: #e0c49a;
+      --color-border: #2d2824;
+    }
+
+    :root[data-theme="light"] {
+      --color-bg: #faf8f5;
+      --color-bg-alt: #f2efe9;
+      --color-surface: #ffffff;
+      --color-text: #1a1816;
+      --color-text-muted: #6b635b;
+      --color-accent: #c9a87a;
+      --color-accent-dark: #b89466;
+      --color-border: #e8e2da;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    .container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-sm); }
+
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    /* Hero with video */
+    .hero { position: relative; min-height: 100dvh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .hero__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(21,19,17,0.45) 0%, rgba(21,19,17,0.65) 60%, rgba(21,19,17,0.85) 100%); z-index: 1; }
+    .hero__content { position: relative; z-index: 2; text-align: center; padding: var(--space-lg) var(--space-sm); max-width: 90%; }
+    .hero__tagline { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: clamp(1.5rem, 6vw, 2.5rem); color: #fff; line-height: 1.3; text-shadow: 0 2px 20px rgba(0,0,0,0.4); margin-bottom: var(--space-md); text-wrap: balance; }
+    .hero__badge { display: inline-flex; align-items: center; gap: var(--space-xs); background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); padding: var(--space-xs) var(--space-md); border-radius: 100px; font-size: 0.875rem; font-weight: 500; color: #fff; white-space: nowrap; }
+
+    /* Sections */
+    .section { padding: var(--space-xl) var(--space-sm); }
+    .section--alt { background: var(--color-bg-alt); }
+    .section__header { text-align: center; max-width: 60ch; margin: 0 auto var(--space-xl); }
+    .section__title { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.75rem, 5vw, 2.5rem); line-height: 1.2; color: var(--color-text); margin-bottom: var(--space-sm); }
+    .section__subtitle { font-size: 1.05rem; color: var(--color-text-muted); }
+
+    /* Contacts */
+    .contacts { display: grid; gap: var(--space-md); max-width: 600px; margin: 0 auto; }
+    .contact-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-md) var(--space-lg); display: flex; flex-direction: column; gap: var(--space-xs); transition: border-color var(--transition), box-shadow var(--transition); }
+    .contact-card:hover { border-color: var(--color-accent); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+    .contact-card__title { font-family: var(--font-display); font-weight: 600; font-size: 1.125rem; color: var(--color-text); }
+    .contact-card__detail { font-size: 1rem; color: var(--color-text-muted); }
+    .contact-card__detail--phone { font-family: var(--font-body); font-weight: 600; color: var(--color-text); font-size: 1.125rem; }
+    .contact-card__link { display: inline-flex; align-items: center; gap: var(--space-xs); font-weight: 600; color: var(--color-accent); transition: color var(--transition); }
+    .contact-card__link:hover { color: var(--color-accent-dark); }
+    .contact-card__link:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; border-radius: 4px; }
+
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-md); }
+    .gallery__item { position: relative; border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 4/5; background: var(--color-bg-alt); }
+    .gallery__img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .gallery__item:hover .gallery__img { transform: scale(1.05); }
+    .gallery__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(21,19,17,0.7) 100%); opacity: 0; transition: opacity var(--transition); display: flex; align-items: flex-end; padding: var(--space-md); }
+    .gallery__item:hover .gallery__overlay { opacity: 1; }
+    .gallery__caption { font-family: var(--font-display); font-style: italic; color: #fff; font-size: 1rem; }
+
+    /* Instagram */
+    .instagram { text-align: center; }
+    .instagram__btn { display: inline-flex; align-items: center; gap: var(--space-sm); background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff; font-weight: 600; font-size: 1rem; padding: var(--space-md) var(--space-xl); border-radius: 100px; box-shadow: 0 8px 25px rgba(220,39,67,0.35); transition: transform var(--transition), box-shadow var(--transition); }
+    .instagram__btn:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(220,39,67,0.45); }
+    .instagram__btn:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 4px; }
+    .instagram__icon { width: 24px; height: 24px; flex-shrink: 0; }
+
+    /* Footer */
+    .footer { background: var(--color-bg-alt); border-top: 1px solid var(--color-border); padding: var(--space-lg) var(--space-sm); text-align: center; }
+    .footer__text { font-size: 0.875rem; color: var(--color-text-muted); }
+    .footer__heart { color: var(--color-accent); display: inline-block; animation: heartbeat 1.5s ease-in-out infinite; }
+    @keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .contact-card { padding: var(--space-md); }
+      .hero__content { max-width: 95%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero with video -->
+  <section class="hero" aria-label="FLORA DE LUXE — главный баннер">
+    <video class="hero__video" autoplay muted loop playsinline poster="photo_2026-08-22_13-04-53.jpg" aria-hidden="true">
+      <source src="Making_headlights_and_flowers_blink_202608221302.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__content">
+      <p class="hero__tagline">Якщо квіти, то FLORA DE LUXE!</p>
+      <span class="hero__badge">Щодня з 08:00 до 21:00</span>
+    </div>
+  </section>
+
+  <!-- Contacts -->
+  <section class="section" aria-labelledby="contacts-title">
+    <div class="container">
+      <header class="section__header">
+        <h2 id="contacts-title" class="section__title">Наші адреси та контакти</h2>
+        <p class="section__subtitle">Два удобных местоположения в Днепре — заходите или звоните</p>
+      </header>
+      <div class="contacts">
+        <article class="contact-card">
+          <h3 class="contact-card__title">Салон на Пантелеймониевской</h3>
+          <address class="contact-card__detail">Панікахи 42В</address>
+          <a href="tel:+380688885460" class="contact-card__detail contact-card__detail--phone">(068) 888 54 60</a>
+        </article>
+        <article class="contact-card">
+          <h3 class="contact-card__title">Салон на проспекте Яворницького</h3>
+          <address class="contact-card__detail">просп. Дмитра Яворницького 87</address>
+          <a href="tel:+380688882017" class="contact-card__detail contact-card__detail--phone">(068) 888 20 17</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section section--alt" aria-labelledby="gallery-title">
+    <div class="container">
+      <header class="section__header">
+        <h2 id="gallery-title" class="section__title">Наші роботи</h2>
+        <p class="section__subtitle">Свежість, стиль і увага до деталей у кожному букеті</p>
+      </header>
+      <div class="gallery">
+        <figure class="gallery__item">
+          <img class="gallery__img" src="photo_2_2026-08-22_12-40-10.jpg" alt="Букет нежних розових роз" loading="lazy">
+          <figcaption class="gallery__overlay"><span class="gallery__caption">Нежні розові рози</span></figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img class="gallery__img" src="photo_3_2026-08-22_12-40-10.jpg" alt="Класичний букет белых роз" loading="lazy">
+          <figcaption class="gallery__overlay"><span class="gallery__caption">Класичні білi рози</span></figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img class="gallery__img" src="photo_4_2026-08-22_12-40-10.jpg" alt="Сезонный микс-букет" loading="lazy">
+          <figcaption class="gallery__overlay"><span class="gallery__caption">Сезонний мікс</span></figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img class="gallery__img" src="photo_2026-08-22_13-04-53.jpg" alt="Оформление салона FLORA DE LUXE" loading="lazy">
+          <figcaption class="gallery__overlay"><span class="gallery__caption">Наш салон</span></figcaption>
+        </figure>
+        <figure class="gallery__item">
+          <img class="gallery__img" src="G.PNG" alt="Логотип FLORA DE LUXE" loading="lazy">
+          <figcaption class="gallery__overlay"><span class="gallery__caption">FLORA DE LUXE</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram CTA -->
+  <section class="section instagram" aria-labelledby="insta-title">
+    <div class="container">
+      <header class="section__header">
+        <h2 id="insta-title" class="section__title">Підпишіться на Instagram</h2>
+        <p class="section__subtitle">Свіжі роботи, акції та натхнення щодня</p>
+      </header>
+      <a href="https://www.instagram.com/floradeluxe_dnipro?igsi=MXZzZGswbXpqNGtoNQ==" target="_blank" rel="noopener noreferrer" class="instagram__btn" aria-label="Перейти в Instagram FLORA DE LUXE">
+        <svg class="instagram__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+        <span>@floradeluxe_dnipro</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <p class="footer__text">FLORA DE LUXE — квіти, що говорять самі за себе <span class="footer__heart" aria-hidden="true">♥</span></p>
+    <p class="footer__text" style="margin-top: var(--space-xs);">Avenue Dmytro Yavornytskyi, 87, Dnipro</p>
+  </footer>
+</body>
+</html>
